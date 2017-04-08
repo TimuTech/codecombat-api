@@ -8,4 +8,9 @@ class ApiException extends \Exception
 	{
 		return new static("Data must contain name and surname");
 	}
+
+	public static emptyUserId()
+	{
+		return new static("Identifier to retrieve user must be non-empty");
+	}
 }

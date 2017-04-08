@@ -11,4 +11,12 @@ interface CombatContract
     * @return CodeCombat\Resources\User
     */
 	public function createUser($data);
+
+	/**
+    * Retrieve a User on CodeCombat
+    * 
+    * @param string $handle
+    * @return CodeCombat\Resources\User
+    */
+	public function getUser($handle);
 }

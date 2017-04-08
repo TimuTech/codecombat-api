@@ -4,6 +4,7 @@ namespace CodeCombat;
 
 use CodeCombat\Contracts\ApiContract;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\TransferException;
 
 class ApiProxy implements ApiContract
 {
@@ -11,9 +12,13 @@ class ApiProxy implements ApiContract
 	protected $apiUrl = 'https://codecombat.com/api/';
 	protected $authUrl = 'https://codecombat.com/auth/';
 
-	public function __construct()
+	public function __construct($name, $secret)
 	{
-		$this->httpClient = new Client();
+		$this->httpClient = new Client([
+				'headers' => [
+					'Auth' => 'Basic ' . base64_encode($name . ':' . $secret)
+				]
+			]);
 	}
 
 	public function createUser($data)
@@ -22,12 +27,22 @@ class ApiProxy implements ApiContract
 			throw ApiException::emptyUserDetail();
 
 		$response = $this->httpClient->post($this->apiUrl . 'users', [
-				'json' => [
-					'name' => $data['name'],
-					'email' => $data['email']
-				]
-			]);
+			'json' => [
+				'name' => $data['name'],
+				'email' => $data['email']
+			]
+		]);
 
 		return json_decode($response->getBody(), true);
+	}
+
+	public function getUser($id)
+	{
+		if (empty($id))
+			throw ApiException::emptyUserId();
+
+		$response = $this->httpClient->get($this->apiUrl . 'users/' . $id);
+
+		return json_decode($response->getBody(), true); 
 	}
 }
