@@ -13,6 +13,11 @@ class CodeCombat implements CombatContract
 		$this->httpService = new ApiProxy($id, $secret);
 	}
 
+	public function redirect($authId)
+	{
+		return $this->httpService->redirectUrl($authId);
+	}
+
 	public function createUser($data)
 	{
 		$userData = $this->httpService->createUser($data);

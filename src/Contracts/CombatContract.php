@@ -19,4 +19,12 @@ interface CombatContract
     * @return CodeCombat\Resources\User
     */
 	public function getUser($handle);
+
+	/**
+    * Get redirect url to login and redirect user to CodeCombat
+    * 
+    * @param string $authId
+    * @return string
+    */
+	public function redirect($authId);
 }

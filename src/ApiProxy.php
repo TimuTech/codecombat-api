@@ -21,12 +21,20 @@ class ApiProxy implements ApiContract
 			]);
 	}
 
+	public function redirectUrl($authId)
+	{
+		return $this->authUrl.'login-o-auth?'.http_build_query([
+				'provider' => $authId,
+				'accessToken' => '1234'
+			]);
+	}
+
 	public function createUser($data)
 	{
 		if (empty($data['email'] || empty($data['name'])))
 			throw ApiException::emptyUserDetail();
 
-		$response = $this->httpClient->post($this->apiUrl . 'users', [
+		$response = $this->httpClient->post($this->apiUrl.'users', [
 			'json' => [
 				'name' => $data['name'],
 				'email' => $data['email']
@@ -41,7 +49,7 @@ class ApiProxy implements ApiContract
 		if (empty($id))
 			throw ApiException::emptyUserId();
 
-		$response = $this->httpClient->get($this->apiUrl . 'users/' . $id);
+		$response = $this->httpClient->get($this->apiUrl.'users/'.$id);
 
 		return json_decode($response->getBody(), true); 
 	}

@@ -19,4 +19,12 @@ interface ApiContract
     * @return mixed
     */
 	public function getUser($id);
+
+    /**
+    * Get redirect url to login and redirect user to CodeCombat
+    * 
+    * @param string $authId
+    * @return string
+    */
+    public function redirectUrl($authId);
 }
