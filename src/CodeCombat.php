@@ -21,7 +21,7 @@ class CodeCombat implements ProviderContract
 					->redirectUrl();
 	}
 
-	public function createUser($data, $getAuth)
+	public function createUser(array $data, $getAuth)
 	{
 		$userData = $this->httpService->createUser($data);
 		$auth = $getAuth();

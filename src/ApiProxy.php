@@ -61,7 +61,7 @@ class ApiProxy implements ApiContract
 		return json_decode($response->getBody(), true);
 	}
 
-	public function createUser($data)
+	public function createUser(array $data)
 	{
 		if (empty($data['email'] || empty($data['name'])))
 			throw ApiException::emptyUserDetail();

@@ -11,7 +11,7 @@ interface ProviderContract
     * @param Closure $getAuth
     * @return CodeCombat\Resources\User
     */
-	public function createUser($data, $getAuth);
+	public function createUser(array $data, $getAuth);
 
 	/**
     * Retrieve a User on CodeCombat
