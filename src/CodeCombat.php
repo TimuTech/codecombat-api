@@ -2,7 +2,7 @@
 
 namespace CodeCombat;
 
-class CodeCombat implements CombatContract
+class CodeCombat implements ProviderContract
 {
 	protected $userBuilder;
 	protected $httpService;
@@ -13,14 +13,21 @@ class CodeCombat implements CombatContract
 		$this->httpService = new ApiProxy($id, $secret);
 	}
 
-	public function redirect($authId)
+	public function redirect()
 	{
-		return $this->httpService->redirectUrl($authId);
+		// $auth = $getAuth();
+		return $this->httpService
+					// ->setAuth($auth['id'], $auth['token'])
+					->redirectUrl();
 	}
 
-	public function createUser($data)
+	public function createUser($data, $getAuth)
 	{
 		$userData = $this->httpService->createUser($data);
+		$auth = $getAuth();
+		$userData = $this->httpService
+						->setAuth($auth['id'], $auth['token'])
+						->addOAuthIdentity($userData['id']);
 
 		return $this->userBuilder->build(CombatUser::class, $userData);
 	}

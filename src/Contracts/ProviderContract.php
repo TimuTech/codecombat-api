@@ -2,15 +2,16 @@
 
 namespace CodeCombat\Contracts;
 
-interface CombatContract
+interface ProviderContract
 {
 	/**
     * Create a User on CodeCombat
     * 
     * @param array $data
+    * @param Closure $getAuth
     * @return CodeCombat\Resources\User
     */
-	public function createUser($data);
+	public function createUser($data, $getAuth);
 
 	/**
     * Retrieve a User on CodeCombat
@@ -23,8 +24,8 @@ interface CombatContract
 	/**
     * Get redirect url to login and redirect user to CodeCombat
     * 
-    * @param string $authId
+    * @param Closure $getAuth
     * @return string
     */
-	public function redirect($authId);
+	public function redirect();
 }

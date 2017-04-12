@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeCombat\Abstracts;
+namespace CodeCombat\Resources\Abstracts;
 
 use CodeCombat\Exceptions\ResourceException;
 
@@ -9,12 +9,6 @@ abstract class User
 	protected $id;
 	protected $email;
 	protected $name;
-	protected $slug;
-	protected $role;
-	protected $stats = [];
-	protected $oAuthIdentities = [];
-	protected $subscription = [];
-	protected $license = [];
 
 	/**
     * Fill the class attributes from an associate array
@@ -29,9 +23,38 @@ abstract class User
 		}
 		else
 		{	
-			foreach($data as $key => $value)
-				$this->{$key} = $value;
+			$this->fill($data);
 		}	
+	}
+
+	public function setID($id)
+	{
+		$this->id = $id;
+		
+		return $this;
+	}
+
+	public function setEmail($email)
+	{
+		$this->email = $email;
+
+		return $this;
+	}
+
+	public function setName($name)
+	{
+		$this->name = $name;
+
+		return $this;
+	}
+
+	public function fill($data)
+	{
+		$this->id = $data['id'];
+		$this->email = $data['email'];
+		$this->name = $data['name'];
+
+		return $this;
 	}
 
 	protected static function isAssociative(array $array)

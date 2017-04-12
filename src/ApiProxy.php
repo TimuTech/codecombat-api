@@ -11,22 +11,54 @@ class ApiProxy implements ApiContract
 	protected $httpClient;
 	protected $apiUrl = 'https://codecombat.com/api/';
 	protected $authUrl = 'https://codecombat.com/auth/';
+	protected $accessToken;
+	protected $identity;
 
 	public function __construct($name, $secret)
 	{
 		$this->httpClient = new Client([
 				'headers' => [
-					'Auth' => 'Basic ' . base64_encode($name . ':' . $secret)
+					'Authorization' => 'Basic ' . base64_encode($name . ':' . $secret)
 				]
 			]);
 	}
 
-	public function redirectUrl($authId)
+	public function setAuth($id, $token)
+	{
+		$this->identity = $id;
+		$this->accessToken = $token;
+
+		return $this;
+	}
+
+	public function setAccessToken($token)
+	{
+		$this->accesstoken = $token;
+
+		return $this;
+	}
+
+	public function redirectUrl()
 	{
 		return $this->authUrl.'login-o-auth?'.http_build_query([
-				'provider' => $authId,
-				'accessToken' => '1234'
+				'provider' => $this->identity,
+				'accessToken' => $this->accessToken
 			]);
+	}
+
+	public function addOAuthIdentity($id)
+	{
+		if (empty($id))
+			throw ApiException::emptyUserId();
+
+		$response = $this->httpClient->post($this->apiUrl.'users/'.$id.'/o-auth-identities', [
+				'json' => [
+					'provider' => $this->identity,
+					'accessToken' => $this->accessToken
+				]
+			]);
+
+		return json_decode($response->getBody(), true);
 	}
 
 	public function createUser($data)
