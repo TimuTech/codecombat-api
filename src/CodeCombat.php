@@ -2,6 +2,11 @@
 
 namespace CodeCombat;
 
+use CodeCombat\ApiProxy;
+use CodeCombat\Builders\UserBuilder;
+use CodeCombat\Contracts\ProviderContract;
+use CodeCombat\Resources\CombatUser;
+
 class CodeCombat implements ProviderContract
 {
 	protected $userBuilder;
