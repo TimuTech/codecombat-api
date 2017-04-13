@@ -13,15 +13,15 @@ class CodeCombat implements ProviderContract
 	protected $userBuilder;
 	protected $httpService;
 
-	public function __construct($id, $secret)
+	public function __construct($id, $secret, $providerId)
 	{
 		$this->userBuilder = new UserBuilder();
-		$this->httpService = new ApiProxy($id, $secret);
+		$this->httpService = new ApiProxy($id, $secret, $providerId);
 	}
 
-	public function setAuth($id, $token)
+	public function setAuth($token)
 	{
-		$this->httpService->setAuth($id, $token);
+		$this->httpService->setAccessToken($token);
 
 		return $this;
 	}

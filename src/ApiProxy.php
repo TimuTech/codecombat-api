@@ -12,23 +12,17 @@ class ApiProxy implements ApiContract
 	protected $apiUrl = 'https://codecombat.com/api/';
 	protected $authUrl = 'https://codecombat.com/auth/';
 	protected $accessToken;
-	protected $identity;
+	protected $providerId;
 
-	public function __construct($name, $secret)
+	public function __construct($name, $secret, $providerId)
 	{
 		$this->httpClient = new Client([
 				'headers' => [
 					'Authorization' => 'Basic ' . base64_encode($name . ':' . $secret)
 				]
 			]);
-	}
 
-	public function setAuth($id, $token)
-	{
-		$this->identity = $id;
-		$this->accessToken = $token;
-
-		return $this;
+		$this->providerId = $providerId;
 	}
 
 	public function setAccessToken($token)
@@ -41,7 +35,7 @@ class ApiProxy implements ApiContract
 	public function redirectUrl()
 	{
 		return $this->authUrl.'login-o-auth?'.http_build_query([
-				'provider' => $this->identity,
+				'provider' => $this->providerId,
 				'accessToken' => $this->accessToken
 			]);
 	}
@@ -53,7 +47,7 @@ class ApiProxy implements ApiContract
 
 		$response = $this->httpClient->post($this->apiUrl.'users/'.$id.'/o-auth-identities', [
 				'json' => [
-					'provider' => $this->identity,
+					'provider' => $this->providerId,
 					'accessToken' => $this->accessToken
 				]
 			]);

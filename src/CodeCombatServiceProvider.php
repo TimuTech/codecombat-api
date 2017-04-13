@@ -23,7 +23,9 @@ class CodeCombatServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(ProviderContract::class, function ($app) {
-            return new CodeCombat(config('services.codecombat.id'), config('services.codecombat.secret'));
+            return new CodeCombat(config('services.codecombat.id'),
+                                config('services.codecombat.secret'),
+                                config('services.codecombat.provider_id'));
         });
     }
 

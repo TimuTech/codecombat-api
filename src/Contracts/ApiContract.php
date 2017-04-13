@@ -5,14 +5,6 @@ namespace CodeCombat\Contracts;
 interface ApiContract
 {
     /**
-    * Set OAuth Identity (ID and AccessToken)
-    * 
-    * @param array $data
-    * @return $this
-    */
-    public function setAuth($id, $token)
-
-    /**
     * Set OAuth AccessToken for the proxy
     * 
     * @param string $token
@@ -27,6 +19,14 @@ interface ApiContract
     * @return mixed
     */
 	public function createUser(array $data);
+
+    /**
+    * Call to create a user on CodeCombat
+    * 
+    * @param array $id
+    * @return mixed
+    */
+    public function addOAuthIdentity($id);
 
 	/**
     * Call to retrieve a user on CodeCombat by ID

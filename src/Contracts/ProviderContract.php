@@ -9,11 +9,10 @@ interface ProviderContract
     /**
     * Create and set oAuth2 data
     * 
-    * @param string $id
     * @param string $token
     * @return $this
     */
-    public function setAuth($id, $token);
+    public function setAuth($token);
 
     /**
     * Create and set oAuth2 data
