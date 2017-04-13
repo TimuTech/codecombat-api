@@ -5,6 +5,7 @@ namespace CodeCombat;
 use CodeCombat\ApiProxy;
 use CodeCombat\Builders\UserBuilder;
 use CodeCombat\Contracts\ProviderContract;
+use CodeCombat\Resources\Abstracts\User;
 use CodeCombat\Resources\CombatUser;
 
 class CodeCombat implements ProviderContract
@@ -18,21 +19,28 @@ class CodeCombat implements ProviderContract
 		$this->httpService = new ApiProxy($id, $secret);
 	}
 
-	public function redirect()
+	public function setAuth($id, $token)
 	{
-		// $auth = $getAuth();
-		return $this->httpService
-					// ->setAuth($auth['id'], $auth['token'])
-					->redirectUrl();
+		$this->httpService->setAuth($id, $token);
+
+		return $this;
 	}
 
-	public function createUser(array $data, $getAuth)
+	public function createIdentity(User $user)
+	{
+		$this->httpService->addOAuthIdentity($user->getId());
+
+		return $this;
+	}
+
+	public function redirect()
+	{
+		return $this->httpService->redirectUrl();
+	}
+
+	public function register(array $data)
 	{
 		$userData = $this->httpService->createUser($data);
-		$auth = $getAuth();
-		$userData = $this->httpService
-						->setAuth($auth['id'], $auth['token'])
-						->addOAuthIdentity($userData['id']);
 
 		return $this->userBuilder->build(CombatUser::class, $userData);
 	}

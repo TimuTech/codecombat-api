@@ -9,6 +9,7 @@ abstract class User
 	protected $id;
 	protected $email;
 	protected $name;
+	protected $token;
 
 	/**
     * Fill the class attributes from an associate array
@@ -25,6 +26,23 @@ abstract class User
 		{	
 			$this->fill($data);
 		}	
+	}
+
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	public function getEmail()
+	{
+		return $this->email;
+	}
+
+	public function setToken($token);
+	{
+		$this->token = $token;
+
+		return $this;
 	}
 
 	public function setID($id)
