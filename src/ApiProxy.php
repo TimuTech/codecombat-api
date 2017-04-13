@@ -4,7 +4,6 @@ namespace CodeCombat;
 
 use CodeCombat\Contracts\ApiContract;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\TransferException;
 
 class ApiProxy implements ApiContract
 {
