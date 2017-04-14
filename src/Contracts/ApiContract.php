@@ -10,7 +10,7 @@ interface ApiContract
     * @param string $token
     * @return $this
     */
-    public function setAccessToken($token)
+    public function setAccessToken($token);
 
 	/**
     * Call to create a user on CodeCombat
