@@ -63,7 +63,7 @@ class ApiProxy implements ApiContract
 			'json' => [
 				'name' => $data['name'],
 				'email' => $data['email'],
-				'role' => $data['role']
+				'role' => isset($data['role']) ? $data['role'] : ''
 			]
 		]);
 
