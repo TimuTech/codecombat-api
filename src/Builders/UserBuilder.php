@@ -27,6 +27,7 @@ class UserBuilder
 		$buildData = [];
 		$buildData['id'] = $data['_id'];
 		$buildData['email'] = $data['email'];
+		$buildData['name'] = $data['name'];
 		$buildData['slug'] = $data['slug'];
 		$buildData['role'] = isset($data['role']) ? $data['role'] : '';
 		$buildData['stats'] = isset($data['stats']) ? $data['stats'] : '';
