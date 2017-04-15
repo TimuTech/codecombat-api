@@ -28,11 +28,11 @@ class UserBuilder
 		$buildData['id'] = $data['_id'];
 		$buildData['email'] = $data['email'];
 		$buildData['slug'] = $data['slug'];
-		$buildData['role'] = $data['role'];
-		$buildData['stats'] = $data['stats'];
-		$buildData['oAuthIdentities'] = $data['oAuthIdentities'];
-		$buildData['subscription'] = $data['subscription'];
-		$buildData['license'] = $data['license'];
+		$buildData['role'] = isset($data['role']) ? $data['role'] : '';
+		$buildData['stats'] = isset($data['stats']) ? $data['stats'] : '';
+		$buildData['oAuthIdentities'] = isset($data['oAuthIdentities']) ? $data['oAuthIdentities'] : '';
+		$buildData['subscription'] = isset($data['subscription']) ? $data['subscription']: '';
+		$buildData['license'] = isset($data['license']) ? $data['license'] : '';
 		$buildData['profile'] = 'https://codecombat.com/user/' . $data['slug'];
 
 		return new CombatUser($buildData);
