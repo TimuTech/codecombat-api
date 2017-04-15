@@ -82,6 +82,11 @@ abstract class User
 		return $this;
 	}
 
+	public function __toString()
+	{
+		return serialize($this);
+	}
+
 	protected static function isAssociative(array $array)
 	{
 	    // Keys of the array
