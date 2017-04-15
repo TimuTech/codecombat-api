@@ -7,7 +7,6 @@ use CodeCombat\Builders\UserBuilder;
 use CodeCombat\Contracts\ProviderContract;
 use CodeCombat\Resources\Abstracts\User;
 use CodeCombat\Resources\CombatUser;
-use Illuminate\Support\Facades\Log;
 
 class CodeCombat implements ProviderContract
 {
@@ -49,7 +48,7 @@ class CodeCombat implements ProviderContract
 	public function getUser($handle)
 	{
 		$userData = $this->httpService->getUser($handle);
-		Log::debug($userData);
+
 		return $this->userBuilder->build(CombatUser::class, $userData);
 	}
 }
