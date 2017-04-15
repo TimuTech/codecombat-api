@@ -31,6 +31,7 @@ class UserBuilder
 		$buildData['oAuthIdentities'] = $data['oAuthIdentities'];
 		$buildData['subscription'] = $data['subscription'];
 		$buildData['license'] = $data['license'];
+		$buildData['profile'] = 'https://codecombat.com/user/' . $data['slug'];
 
 		return new CombatUser($buildData);
 	}
