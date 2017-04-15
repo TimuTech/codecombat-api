@@ -7,6 +7,7 @@ use CodeCombat\Builders\UserBuilder;
 use CodeCombat\Contracts\ProviderContract;
 use CodeCombat\Resources\Abstracts\User;
 use CodeCombat\Resources\CombatUser;
+use Illuminate\Support\Facades\Log;
 
 class CodeCombat implements ProviderContract
 {
