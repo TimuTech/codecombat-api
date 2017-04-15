@@ -4,6 +4,7 @@ namespace CodeCombat;
 
 use CodeCombat\Contracts\ApiContract;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 class ApiProxy implements ApiContract
 {
@@ -33,6 +34,10 @@ class ApiProxy implements ApiContract
 
 	public function redirectUrl()
 	{
+		Log::debug(http_build_query([
+				'provider' => $this->providerId,
+				'accessToken' => $this->accessToken
+			]));
 		return $this->authUrl.'login-o-auth?'.http_build_query([
 				'provider' => $this->providerId,
 				'accessToken' => $this->accessToken
