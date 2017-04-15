@@ -48,7 +48,7 @@ class CodeCombat implements ProviderContract
 	public function getUser($handle)
 	{
 		$userData = $this->httpService->getUser($handle);
-
+		Log::debug($userData);
 		return $this->userBuilder->build(CombatUser::class, $userData);
 	}
 }

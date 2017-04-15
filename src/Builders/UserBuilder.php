@@ -2,6 +2,8 @@
 
 namespace CodeCombat\Builders;
 
+use CodeCombat\Resources\CombatUser;
+
 class UserBuilder
 {
 	/**

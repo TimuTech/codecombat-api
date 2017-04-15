@@ -77,7 +77,7 @@ class ApiProxy implements ApiContract
 			throw ApiException::emptyUserId();
 
 		$response = $this->httpClient->get($this->apiUrl.'users/'.$id);
-		dd(json_decode($response->getBody(), true));
+
 		return json_decode($response->getBody(), true); 
 	}
 }
