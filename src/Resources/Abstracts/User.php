@@ -44,7 +44,7 @@ abstract class User
 		return $this->email;
 	}
 
-	public function setToken($token);
+	public function setToken($token)
 	{
 		$this->token = $token;
 
