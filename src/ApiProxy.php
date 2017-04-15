@@ -27,17 +27,13 @@ class ApiProxy implements ApiContract
 
 	public function setAccessToken($token)
 	{
-		$this->accesstoken = $token;
+		$this->accessToken = $token;
 
 		return $this;
 	}
 
 	public function redirectUrl()
 	{
-		Log::debug(http_build_query([
-				'provider' => $this->providerId,
-				'accessToken' => $this->accessToken
-			]));
 		return $this->authUrl.'login-o-auth?'.http_build_query([
 				'provider' => $this->providerId,
 				'accessToken' => $this->accessToken
