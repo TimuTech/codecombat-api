@@ -62,7 +62,8 @@ class ApiProxy implements ApiContract
 		$response = $this->httpClient->post($this->apiUrl.'users', [
 			'json' => [
 				'name' => $data['name'],
-				'email' => $data['email']
+				'email' => $data['email'],
+				'role' => $data['role']
 			]
 		]);
 
