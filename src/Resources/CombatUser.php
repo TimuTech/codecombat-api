@@ -2,7 +2,7 @@
 
 namespace CodeCombat\Resources;
 
-use CodeCombat\Abstracts\User;
+use CodeCombat\Resources\Abstracts\User;
 
 class CombatUser extends User
 {
