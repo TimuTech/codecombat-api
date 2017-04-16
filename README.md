@@ -2,7 +2,7 @@
 ### PHP SDK for CodeCombat REST API
 
 **codecombat-api** is a SDK for the [CodeCombat](https://codecombat.com/api-docs) REST API.
-It provides an abstracted interface to talk with the CodeCombat API. The Package contains a Laravel ServiceProvider to inject it into the Laravel Service Container, but other than that the package is framework-independant. Please look at the [CodeCombat API Documentation](https://codecombat.com/api-docs) for more details and do not be afraid to peruse the source code on this package.
+It provides an abstracted interface to talk with the CodeCombat API. The Package contains a Laravel ServiceProvider to inject it into the Laravel Service Container, but other than that the package is framework-independent. Please look at the [CodeCombat API Documentation](https://codecombat.com/api-docs) for more details and do not be afraid to peruse the source code on this package.
 
 ## Installation
 
@@ -26,7 +26,7 @@ Add the line `TimuTech\CodeCombat\CodeCombatserviceProvider::class,` like below 
 'providers' => [
 	// Other
 
-	TimuTech\CodeCombat\CodeCombatserviceProvider::class,
+	TimuTech\CodeCombat\CodeCombatServiceProvider::class,
 ],
 ```
 
