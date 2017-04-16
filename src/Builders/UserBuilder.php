@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeCombat\Builders;
+namespace TimuTech\CodeCombat\Builders;
 
-use CodeCombat\Resources\CombatUser;
+use TimuTech\CodeCombat\Resources\CombatUser;
 
 class UserBuilder
 {

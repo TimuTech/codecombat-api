@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeCombat\Resources;
+namespace TimuTech\CodeCombat\Resources;
 
-use CodeCombat\Resources\Abstracts\User;
+use TimuTech\CodeCombat\Resources\Abstracts\User;
 
 class CombatUser extends User
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeCombat\Resources\Abstracts;
+namespace TimuTech\CodeCombat\Resources\Abstracts;
 
-use CodeCombat\Exceptions\ResourceException;
+use TimuTech\CodeCombat\Exceptions\ResourceException;
 
 abstract class User
 {

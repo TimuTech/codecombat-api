@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeCombat\Contracts;
+namespace TimuTech\CodeCombat\Contracts;
 
-use CodeCombat\Resources\Abstracts\User;
+use TimuTech\CodeCombat\Resources\Abstracts\User;
 
 interface ProviderContract
 {

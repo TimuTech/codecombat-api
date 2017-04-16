@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeCombat\Contracts;
+namespace TimuTech\CodeCombat\Contracts;
 
 interface ApiContract
 {

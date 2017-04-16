@@ -1,9 +1,9 @@
 <?php
 
-namespace CodeCombat;
+namespace TimuTech\CodeCombat;
 
-use CodeCombat\CodeCombat;
-use CodeCombat\Contracts\ProviderContract;
+use TimuTech\CodeCombat\CodeCombat;
+use TimuTech\CodeCombat\Contracts\ProviderContract;
 use Illuminate\Support\ServiceProvider;
 
 class CodeCombatServiceProvider extends ServiceProvider

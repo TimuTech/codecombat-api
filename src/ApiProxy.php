@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeCombat;
+namespace TimuTech\CodeCombat;
 
-use CodeCombat\Contracts\ApiContract;
+use TimuTech\CodeCombat\Contracts\ApiContract;
 use GuzzleHttp\Client;
 
 class ApiProxy implements ApiContract

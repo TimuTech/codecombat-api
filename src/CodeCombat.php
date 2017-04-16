@@ -1,12 +1,12 @@
 <?php
 
-namespace CodeCombat;
+namespace TimuTech\CodeCombat;
 
-use CodeCombat\ApiProxy;
-use CodeCombat\Builders\UserBuilder;
-use CodeCombat\Contracts\ProviderContract;
-use CodeCombat\Resources\Abstracts\User;
-use CodeCombat\Resources\CombatUser;
+use TimuTech\CodeCombat\ApiProxy;
+use TimuTech\CodeCombat\Builders\UserBuilder;
+use TimuTech\CodeCombat\Contracts\ProviderContract;
+use TimuTech\CodeCombat\Resources\Abstracts\User;
+use TimuTech\CodeCombat\Resources\CombatUser;
 
 class CodeCombat implements ProviderContract
 {

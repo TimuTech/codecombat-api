@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeCombat\Exceptions;
+namespace TimuTech\CodeCombat\Exceptions;
 
 class ApiException extends \Exception
 {
