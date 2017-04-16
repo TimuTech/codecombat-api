@@ -4,7 +4,6 @@ namespace CodeCombat;
 
 use CodeCombat\Contracts\ApiContract;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Log;
 
 class ApiProxy implements ApiContract
 {
