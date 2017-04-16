@@ -76,6 +76,11 @@ $token = {YOUR OAuth2 token, generated for your user from your server}
 $handle = {UNIQUE Nick Name assigned earlier or the CodeCombat ID of the user, if you have it}
 $combatUser = $codecombat->setAuth($token)->getUser($handle);
 ```
+Get the url to redirect to CodeCombat
+```php
+$token = {YOUR OAuth2 token, generated for your user from your server}
+$url = $codecombat->setAuth($token)->redirect();
+```
 
 The `TimuTech\CodeCombat\Resources\CombatUser` class has some helpful methods and attributes, to name a few:
 ```php
