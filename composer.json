@@ -2,6 +2,12 @@
     "name": "timutech/codecombat-api",
     "description": "SDK for codecombat.com REST API",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Glöss",
+            "email": "alexander@timu.co.za"
+        }
+    ],
     "require": {
         "php": ">=5.6.4",
         "illuminate/support": "^5.3",
@@ -9,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CodeCombat\\": "src/"
+            "TimuTech\\CodeCombat\\": "src/"
         }
     }
 }
