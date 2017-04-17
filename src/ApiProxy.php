@@ -2,8 +2,9 @@
 
 namespace TimuTech\CodeCombat;
 
-use TimuTech\CodeCombat\Contracts\ApiContract;
 use GuzzleHttp\Client;
+use TimuTech\CodeCombat\Contracts\ApiContract;
+use TimuTech\CodeCombat\Exceptions\ApiException;
 
 class ApiProxy implements ApiContract
 {

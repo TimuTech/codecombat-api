@@ -25,7 +25,7 @@ class CodeCombat implements ProviderContract
 	public function addClassStudent($handle, $code, User $user)
 	{
 		$classroomData = $this->httpService->addClassMember($handle, [
-				'userId' => $user->getId(),
+				'id' => $user->getId(),
 				'code' => $code
 			]);
 
