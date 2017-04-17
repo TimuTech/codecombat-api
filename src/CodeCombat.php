@@ -3,6 +3,7 @@
 namespace TimuTech\CodeCombat;
 
 use TimuTech\CodeCombat\ApiProxy;
+use TimuTech\CodeCombat\Builders\ClassroomBuilder;
 use TimuTech\CodeCombat\Builders\UserBuilder;
 use TimuTech\CodeCombat\Contracts\ProviderContract;
 use TimuTech\CodeCombat\Resources\Abstracts\User;
@@ -11,12 +12,24 @@ use TimuTech\CodeCombat\Resources\CombatUser;
 class CodeCombat implements ProviderContract
 {
 	protected $userBuilder;
+	protected $classroomBuilder;
 	protected $httpService;
 
 	public function __construct($id, $secret, $providerId)
 	{
 		$this->userBuilder = new UserBuilder();
+		$this->classroomBuilder = new ClassroomBuilder();
 		$this->httpService = new ApiProxy($id, $secret, $providerId);
+	}
+
+	public function addClassStudent($handle, $code, User $user)
+	{
+		$classroomData = $this->httpService->addClassMember($handle, [
+				'userId' => $user->getId(),
+				'code' => $code
+			]);
+
+		return $this->classroomBuilder->build(CombatClassroom::class, $classroomData);
 	}
 
 	public function setAuth($token)

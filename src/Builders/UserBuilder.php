@@ -10,10 +10,11 @@ class UserBuilder
     * Build our user object from the data received from CodeCombat.
     * Through this abstraction CodeCombat changing attribute names keeps us from refactoring with them
     * 
+    * @param string $type
     * @param array $data
-    * @return CodeCombat\Resources\User
+    * @return timuTech\CodeCombat\Resources\User
     */
-	public function build($type, $data)
+	public function build($type, array $data)
 	{
 		switch($type)
 		{
@@ -26,7 +27,7 @@ class UserBuilder
 	{
 		$buildData = [];
 		$buildData['id'] = $data['_id'];
-		$buildData['email'] = $data['email'];
+		$buildData['email'] = isset($data['email']) ? $data['email'] : '';
 		$buildData['name'] = $data['name'];
 		$buildData['slug'] = $data['slug'];
 		$buildData['role'] = isset($data['role']) ? $data['role'] : '';

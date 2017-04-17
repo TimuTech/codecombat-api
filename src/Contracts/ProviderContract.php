@@ -10,10 +10,11 @@ interface ProviderContract
     * Adds a user to a classroom
     * 
     * @param string $handle  // of classroom
-    * @param array $userData
+    * @param string $code  // of classroom
+    * @param CodeCombat\Resources\Abstracts\User $user
     * @return mixed
     */
-    public function addClassStudent($handle, User $user);
+    public function addClassStudent($handle, $code, User $user);
 
     /**
     * Create and set oAuth2 data

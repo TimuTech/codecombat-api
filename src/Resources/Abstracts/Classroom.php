@@ -4,13 +4,13 @@ namespace TimuTech\CodeCombat\Resources\Abstracts;
 
 use TimuTech\CodeCombat\Exceptions\ResourceException;
 
-abstract class User
+abstract class Classroom
 {
 	protected $id;
-	protected $email;
+	protected $teacherId;
 	protected $name;
-	protected $token;
-	protected $profile;
+	protected $description;
+	protected $members = [];
 
 	/**
     * Fill the class attributes from an associate array
@@ -29,31 +29,19 @@ abstract class User
 		}	
 	}
 
-	public function getProfile()
+	public function getMembers()
 	{
-		return $this->profile;
+		return $this->members;
+	}
+
+	public function getTeacherId()
+	{
+		return $this->teacherId;
 	}
 
 	public function getId()
 	{
 		return $this->id;
-	}
-
-	public function getEmail()
-	{
-		return $this->email;
-	}
-
-	public function getToken()
-	{
-		return $this->token;
-	}
-
-	public function setToken($token)
-	{
-		$this->token = $token;
-
-		return $this;
 	}
 
 	public function setID($id)
@@ -63,11 +51,9 @@ abstract class User
 		return $this;
 	}
 
-	public function setEmail($email)
+	public function getDescription()
 	{
-		$this->email = $email;
-
-		return $this;
+		return $this->description;
 	}
 
 	public function setName($name)
@@ -80,10 +66,10 @@ abstract class User
 	public function fill($data)
 	{
 		$this->id = $data['id'];
-		$this->email = $data['email'];
+		$this->teacherId = $data['email'];
 		$this->name = $data['name'];
-		$this->profile = $data['profile'];
-		$this->token = $data['token'];
+		$this->description = $data['profile'];
+		$this->members = $data['members'];
 
 		return $this;
 	}

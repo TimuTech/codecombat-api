@@ -24,6 +24,23 @@ class ApiProxy implements ApiContract
 		$this->providerId = $providerId;
 	}
 
+	public function addClassMember($handle, array $userData)
+	{
+		if (empty($handle))
+			throw ApiException::emptyClassroomHandle();
+		if (!isset($userData['id']) || empty($userData['id']))
+			throw ApiException::emptyUserHandle();
+
+		$response = $this->httpClient->put($this->apiUrl.'classrooms/'.$handle.'/members', [
+				'json' => [
+					'userId' => $userData['id'],
+					'code' => $userData['code']
+				]
+			]);
+
+		return json_decode($response->getBody(), true);
+	}
+
 	public function setAccessToken($token)
 	{
 		$this->accessToken = $token;
@@ -73,7 +90,7 @@ class ApiProxy implements ApiContract
 	public function getUser($id)
 	{
 		if (empty($id))
-			throw ApiException::emptyUserId();
+			throw ApiException::emptyUserHandle();
 
 		$response = $this->httpClient->get($this->apiUrl.'users/'.$id);
 
