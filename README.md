@@ -53,8 +53,7 @@ Instantiate
 $codecombat = new CodeCombat(
 	{CLIENT_ID},
 	{CLIENT_SECRET},
-	{OAUTH_PROVIDER_ID}
-);
+	{OAUTH_PROVIDER_ID});
 ```
 Create a new user
 ```php

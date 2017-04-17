@@ -7,6 +7,15 @@ use TimuTech\CodeCombat\Resources\Abstracts\User;
 interface ProviderContract
 {
     /**
+    * Adds a user to a classroom
+    * 
+    * @param string $handle  // of classroom
+    * @param array $userData
+    * @return mixed
+    */
+    public function addClassStudent($handle, User $user);
+
+    /**
     * Create and set oAuth2 data
     * 
     * @param string $token

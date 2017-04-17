@@ -5,6 +5,15 @@ namespace TimuTech\CodeCombat\Contracts;
 interface ApiContract
 {
     /**
+    * Adds a user to a classroom
+    * 
+    * @param string $handle // of classroom
+    * @param array $userData
+    * @return mixed
+    */
+    public function addClassMember($handle, array $userData);
+
+    /**
     * Set OAuth AccessToken for the proxy
     * 
     * @param string $token
