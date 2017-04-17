@@ -80,10 +80,10 @@ abstract class User
 	public function fill($data)
 	{
 		$this->id = $data['id'];
-		$this->email = $data['email'];
+		$this->email = isset($data['email']) ? $data['email'] : '';
 		$this->name = $data['name'];
-		$this->profile = $data['profile'];
-		$this->token = $data['token'];
+		$this->profile = isset($data['profile']) ? $data['profile'] : '';
+		$this->token = isset($data['token']) ? $data['token'] : '';
 
 		return $this;
 	}
