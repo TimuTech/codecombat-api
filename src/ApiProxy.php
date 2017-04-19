@@ -27,7 +27,7 @@ class ApiProxy implements ApiContract
 
 	public function addClassMember($handle, array $userData)
 	{
-		if (empty($handle))
+		if (empty($handle) || !isset($userData['code']))
 			throw ApiException::emptyClassroomHandle();
 		if (!isset($userData['id']) || empty($userData['id']))
 			throw ApiException::emptyUserHandle();
