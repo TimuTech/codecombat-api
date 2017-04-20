@@ -80,7 +80,7 @@ class ApiProxy implements ApiContract
 		$response = $this->httpClient->post($this->apiUrl.'users', [
 			'json' => [
 				'name' => $data['name'],
-				'email' => $data['email'],
+				'email' => empty($data['email']) ? '' : $data['email'],
 				'role' => isset($data['role']) ? $data['role'] : ''
 			]
 		]);
