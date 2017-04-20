@@ -74,7 +74,7 @@ class ApiProxy implements ApiContract
 
 	public function createUser(array $data)
 	{
-		if (empty($data['email'] || empty($data['name'])))
+		if (empty($data['name']))
 			throw ApiException::emptyUserDetail();
 
 		$response = $this->httpClient->post($this->apiUrl.'users', [

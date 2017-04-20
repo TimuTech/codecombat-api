@@ -11,7 +11,7 @@ class ApiException extends \Exception
 
 	public static function emptyUserDetail()
 	{
-		return new static("Data must contain name and surname");
+		return new static("Data must contain name");
 	}
 
 	public static function emptyUserHandle()
