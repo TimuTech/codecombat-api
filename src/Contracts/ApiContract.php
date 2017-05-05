@@ -5,6 +5,16 @@ namespace TimuTech\CodeCombat\Contracts;
 interface ApiContract
 {
     /**
+    * Adds a user to a course in a classroom
+    * 
+    * @param string $classHandle // of classroom
+    * @param string $courseHandle // of course
+    * @param array $userData
+    * @return mixed
+    */
+    public function addCourseMember($classHandle, $courseHandle, array $userData);
+
+    /**
     * Adds a user to a classroom
     * 
     * @param string $handle // of classroom

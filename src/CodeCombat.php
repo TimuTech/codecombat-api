@@ -22,6 +22,15 @@ class CodeCombat implements ProviderContract
 		$this->httpService = new ApiProxy($id, $secret, $providerId);
 	}
 
+	public function addCourseStudent($classHandle, $courseHandle, User $user)
+	{
+		$classroomData = $this->httpService->addCourseMember($classHandle, $courseHandle, [
+				'id' => $user->getId()
+			]);
+
+		return $this->classroomBuilder->build(CombatClassroom::class, $classroomData);
+	}
+
 	public function addClassStudent($handle, $code, User $user)
 	{
 		$classroomData = $this->httpService->addClassMember($handle, [

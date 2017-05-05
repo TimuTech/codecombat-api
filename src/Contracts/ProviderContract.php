@@ -7,6 +7,16 @@ use TimuTech\CodeCombat\Resources\Abstracts\User;
 interface ProviderContract
 {
     /**
+    * Adds a user to a course in a classroom
+    * 
+    * @param string $classHandle // of classroom
+    * @param string $courseHandle // of course
+    * @param CodeCombat\Resources\Abstracts\User $user
+    * @return mixed
+    */
+    public function addCourseStudent($classHandle, $courseHandle, User $user);
+
+    /**
     * Adds a user to a classroom
     * 
     * @param string $handle  // of classroom
