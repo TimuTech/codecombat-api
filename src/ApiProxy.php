@@ -32,7 +32,7 @@ class ApiProxy implements ApiContract
 		if (!isset($userData['id']) || empty($userData['id']))
 			throw ApiException::emptyUserHandle();
 
-		$response = $this->httpClient->put($this->apiUrl.sprintf('classrooms/%s/course/%s/enrolled', $classHandle, $courseHandle), [
+		$response = $this->httpClient->put($this->apiUrl.sprintf('classrooms/%s/courses/%s/enrolled', $classHandle, $courseHandle), [
 				'json' => [
 					'userId' => $userData['id']
 				]
