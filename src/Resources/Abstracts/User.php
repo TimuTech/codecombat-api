@@ -3,6 +3,7 @@
 namespace TimuTech\CodeCombat\Resources\Abstracts;
 
 use TimuTech\CodeCombat\Exceptions\ResourceException;
+use TimuTech\CodeCombat\Resources\Abstracts\UserStats;
 
 abstract class User
 {
@@ -11,6 +12,7 @@ abstract class User
 	protected $name;
 	protected $token;
 	protected $profile;
+	protected $stats;
 
 	/**
     * Fill the class attributes from an associate array
@@ -73,6 +75,18 @@ abstract class User
 	public function setName($name)
 	{
 		$this->name = $name;
+
+		return $this;
+	}
+
+	public function getStats()
+	{
+		return $this->stats;
+	}
+
+	public function setStats(UserStats $stats)
+	{
+		$this->stats = $stats;
 
 		return $this;
 	}

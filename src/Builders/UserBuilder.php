@@ -2,6 +2,7 @@
 
 namespace TimuTech\CodeCombat\Builders;
 
+use TimuTech\CodeCombat\Resources\CombatStats;
 use TimuTech\CodeCombat\Resources\CombatUser;
 
 class UserBuilder
@@ -37,6 +38,6 @@ class UserBuilder
 		$buildData['license'] = isset($data['license']) ? $data['license'] : '';
 		$buildData['profile'] = 'https://codecombat.com/user/' . $data['slug'];
 
-		return new CombatUser($buildData);
+		return (new CombatUser($buildData)->setStats(new CombatStats($data));
 	}
 }
