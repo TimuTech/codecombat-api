@@ -26,6 +26,16 @@ abstract class UserStats
 		}	
 	}
 
+	public function getScore()
+	{
+		return $this->score;
+	}
+
+	public function getConcepts()
+	{
+		return $this->concepts;
+	}
+
 	public function __toString()
 	{
 		return serialize($this);
