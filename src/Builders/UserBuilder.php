@@ -42,7 +42,7 @@ class UserBuilder
 
 		// stats
 		$statsData['score'] = isset($data['points']) ? $data['points'] : '';
-		$statsData['concepts'] = isset($data['stats']['concepts']) ? $data['stats']['concepts'] : '';
+		$statsData['concepts'] = isset($data['stats']['concepts']) ? $data['stats']['concepts'] : [];
 
 		return (new CombatUser($buildData))->setStats(new CombatStats($statsData));
 	}
