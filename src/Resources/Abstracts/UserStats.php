@@ -7,7 +7,7 @@ use TimuTech\CodeCombat\Exceptions\ResourceException;
 abstract class UserStats
 {
 	protected $score;
-	protected $concepts;
+	protected $concepts = [];
 
 	/**
     * Fill the class attributes from an associate array
