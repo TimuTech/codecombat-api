@@ -38,6 +38,6 @@ class UserBuilder
 		$buildData['license'] = isset($data['license']) ? $data['license'] : '';
 		$buildData['profile'] = 'https://codecombat.com/user/' . $data['slug'];
 
-		return (new CombatUser($buildData)->setStats(new CombatStats($data));
+		return (new CombatUser($buildData))->setStats(new CombatStats($data));
 	}
 }

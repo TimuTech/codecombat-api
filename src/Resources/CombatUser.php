@@ -18,7 +18,6 @@ class CombatUser extends User
 		parent::fill($data);
 		$this->slug = isset($data['slug']) ? $data['slug'] : '';
 		$this->role = isset($data['role']) ? $data['role'] : '';;
-		$this->stats = isset($data['stats']) ? $data['stats'] : '';
 		$this->oAuthIdentities = isset($data['oAuthIdentities']) ? $data['oAuthIdentities'] : '';
 		$this->subscription = isset($data['subscription']) ? $data['subscription'] : '';
 		$this->license = isset($data['license']) ? $data['license'] : '';
