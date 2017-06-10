@@ -8,8 +8,8 @@ class CombatStats extends UserStats
 {
 	public function fill($data)
 	{
-		$this->score = $data['points'];
-		$this->concepts = $data['stats']['concepts'];
+		$this->score = $data['score'];
+		$this->concepts = $data['concepts'];
 
 		return $this;
 	}
