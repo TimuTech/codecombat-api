@@ -1,6 +1,6 @@
 {
     "name": "timutech/codecombat-api",
-    "description": "SDK for codecombat.com REST API",
+    "description": "Package for codecombat.com REST API",
     "license": "MIT",
     "authors": [
         {
